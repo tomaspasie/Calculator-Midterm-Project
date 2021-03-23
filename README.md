@@ -8,16 +8,16 @@
 ## Introduction
 
 This calculator offers the following features:
-•	Basic Operations: Addition, Subtraction, Division, Multiplication, Square Root, Square.
-•	The user is able to select what functions they would like to use from the console when the program starts.
-•	The calculator is configurable, you can specify what functions the calculator is capable of and dynamically add functionality to it at run-time based on the user's selection.
-•	The user can select an option that will display what the calculator is capable of doing.
-•	Calculations are stored in a model. 
-•	Each calculation is stored in a list of calculations.
-•	A user can iterate over the list of calculations to display the next, previous, first, and last calculation in the list of calculations.  
-•	The calculator can handle a divide by zero condition
-•	The calculator utilizes at least 5 design patterns.
-•	The calculator utilized dependency injection and illustrated how to use the inversion of control principle with the implementation of a logging library.
+•	Basic Operations: Addition, Subtraction, Division, Multiplication, Square Root, Square.  
+•	The user is able to select what functions they would like to use from the console when the program starts.  
+•	The calculator is configurable, you can specify what functions the calculator is capable of and dynamically add functionality to it at run-time based on the user's selection.  
+•	The user can select an option that will display what the calculator is capable of doing.  
+•	Calculations are stored in a model.  
+•	Each calculation is stored in a list of calculations.  
+•	A user can iterate over the list of calculations to display the next, previous, first, and last calculation in the list of calculations.    
+•	The calculator can handle a divide by zero condition.  
+•	The calculator utilizes at least 5 design patterns.  
+•	The calculator utilized dependency injection and illustrated how to use the inversion of control principle with the implementation of a logging library.  
 
 ## How Each Design Pattern Was Used
 
