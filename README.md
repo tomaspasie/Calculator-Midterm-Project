@@ -22,7 +22,7 @@ This calculator offers the following features:
 ## How Each Design Pattern Was Used
 
 ### 1: Decorator Design Pattern – Used for the calculator’s operations. When letting the user add functionality to the calculator, decorators are tied to events which are set off by the user.  
-**Code Example: (See Calculator.cs File For More)**  
+**Code Example: (See Decorators Folder For More)**  
 ```c#
 // Addition Decorator (Concrete)
 class AdditionDecorator : CalculatorDecorator
