@@ -169,20 +169,20 @@ When the calculator is first activated, the user will need to interact with the 
 ![Tests Passing](/Tests-Passing.png "Screenshot of Tests Passing")
  
 ## Articles Referenced
-https://www.dotnettricks.com/learn/designpatterns/solid-design-principles-explained-using-csharp
-https://refactoring.guru/design-patterns/decorator
-https://www.dofactory.com/net/decorator-design-pattern
-https://refactoring.guru/design-patterns/facade
-https://www.dofactory.com/net/facade-design-pattern
-https://refactoring.guru/design-patterns/iterator
-https://www.dofactory.com/net/iterator-design-pattern
-https://refactoring.guru/design-patterns/command
-https://www.dofactory.com/net/command-design-pattern
-https://www.intertech.com/c-sharp-tutorial-understanding-c-events/
-https://refactoring.guru/replace-conditional-with-polymorphism
-https://youtu.be/G7ErX_0eCkU
-https://refactoring.guru/design-patterns/observer
-https://www.dofactory.com/net/state-design-pattern
-https://www.blinkingcaret.com/2018/02/14/net-core-console-logging/
-https://www.tutorialspoint.com/dividebyzeroexception-class-in-chash 
+https://www.dotnettricks.com/learn/designpatterns/solid-design-principles-explained-using-csharp  
+https://refactoring.guru/design-patterns/decorator  
+https://www.dofactory.com/net/decorator-design-pattern  
+https://refactoring.guru/design-patterns/facade  
+https://www.dofactory.com/net/facade-design-pattern  
+https://refactoring.guru/design-patterns/iterator  
+https://www.dofactory.com/net/iterator-design-pattern  
+https://refactoring.guru/design-patterns/command  
+https://www.dofactory.com/net/command-design-pattern  
+https://www.intertech.com/c-sharp-tutorial-understanding-c-events/  
+https://refactoring.guru/replace-conditional-with-polymorphism  
+https://youtu.be/G7ErX_0eCkU  
+https://refactoring.guru/design-patterns/observer  
+https://www.dofactory.com/net/state-design-pattern  
+https://www.blinkingcaret.com/2018/02/14/net-core-console-logging/  
+https://www.tutorialspoint.com/dividebyzeroexception-class-in-chash  
 
