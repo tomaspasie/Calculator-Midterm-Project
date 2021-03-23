@@ -43,6 +43,7 @@ class AdditionDecorator : CalculatorDecorator
 
 ### 2: Command Design Pattern – Used to handle user input at run-time.
 **Code Example: (See Commands Folder For More)**
+'''
 namespace CalculatorProject.Commands
 {
     // Command Abstract Class
@@ -52,10 +53,13 @@ namespace CalculatorProject.Commands
         public abstract bool UserChoiceCheck(Invoker command);
         public abstract void Execute(Invoker command, ICalculatorComponent calculator);
         public abstract void ExecuteConsole(Invoker command, ICalculatorComponent calculator, ILogger<CalculatorManager> logger);
-    }...
+    }
+}
+'''
 	
 ### 3: Iterator Design Pattern – Used for traversing and displaying the calculation history as well as to retrieve specific indexes throughout the calculator.
 **Code Example: (See Iterator Folder For More)**
+'''
 // Concrete Iterator Class (Iterator Design Pattern)
     class Iterator : ICalculationIterator
     {
@@ -90,9 +94,11 @@ namespace CalculatorProject.Commands
                 end = false;
             }
         }
+'''
 
 ### 4: Façade Design Pattern – Used to hide the calculator’s calculation modification functions to create a more simplified interface for these functions of the calculator.
 **Code Example: (See Facade Folder For More)**
+'''
 namespace CalculatorProject.Facade
 {
     // The Facade Class (Facade Design Pattern)
@@ -105,8 +111,11 @@ namespace CalculatorProject.Facade
         {
             _remove.Execute(calculator, index);
         }…
+'''
+
 ### 5: State Design Pattern – Used to track the state of a calculation in order to see if it is “Unmodified” or “Modified”.
 **Code Example: (See State Folder For More)**
+'''
 namespace CalculatorProject.State
 {
     // Context Class (State Design Pattern)
@@ -134,6 +143,7 @@ namespace CalculatorProject.State
         }
     }
 }
+'''
  
 ## How SOLID Was Applied
 1.	Single Responsibility Principle (SRP)
