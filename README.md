@@ -1,4 +1,3 @@
-# Calculator-Midterm-Project
 ###### Tomas Pasiecznik
 ###### Professor Williams
 ###### IS 421-002
