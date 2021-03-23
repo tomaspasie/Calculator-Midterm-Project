@@ -1,12 +1,12 @@
 # Calculator-Midterm-Project
-######Tomas Pasiecznik
-######Professor Williams
-######IS 421-002
-######23 March 2020
+###### Tomas Pasiecznik
+###### Professor Williams
+###### IS 421-002
+###### 23 March 2020
 
 # Calculator Tutorial Article (Midterm Project)
 
-# Introduction
+## Introduction
 
 This calculator offers the following features:
 •	Basic Operations: Addition, Subtraction, Division, Multiplication, Square Root, Square.
@@ -20,9 +20,9 @@ This calculator offers the following features:
 •	The calculator utilizes at least 5 design patterns.
 •	The calculator utilized dependency injection and illustrated how to use the inversion of control principle with the implementation of a logging library.
 
-# How Each Design Pattern Was Used
+## How Each Design Pattern Was Used
 
-# 1: Decorator Design Pattern – Used for the calculator’s operations. When letting the user add functionality to the calculator, decorators are tied to events which are set off by the user.
+### 1: Decorator Design Pattern – Used for the calculator’s operations. When letting the user add functionality to the calculator, decorators are tied to events which are set off by the user.
 **Code Example: (See Calculator.cs File For More)**
 // Addition Decorator (Concrete)
 class AdditionDecorator : CalculatorDecorator
@@ -42,7 +42,7 @@ class AdditionDecorator : CalculatorDecorator
         }
     }
 
-# 2: Command Design Pattern – Used to handle user input at run-time.
+### 2: Command Design Pattern – Used to handle user input at run-time.
 **Code Example: (See Commands Folder For More)**
 namespace CalculatorProject.Commands
 {
@@ -55,7 +55,7 @@ namespace CalculatorProject.Commands
         public abstract void ExecuteConsole(Invoker command, ICalculatorComponent calculator, ILogger<CalculatorManager> logger);
     }
 }
-# 3: Iterator Design Pattern – Used for traversing and displaying the calculation history as well as to retrieve specific indexes throughout the calculator.
+### 3: Iterator Design Pattern – Used for traversing and displaying the calculation history as well as to retrieve specific indexes throughout the calculator.
 **Code Example: (See Iterator Folder For More)**
 // Concrete Iterator Class (Iterator Design Pattern)
     class Iterator : ICalculationIterator
@@ -92,7 +92,7 @@ namespace CalculatorProject.Commands
             }
         }
 
-# 4: Façade Design Pattern – Used to hide the calculator’s calculation modification functions to create a more simplified interface for these functions of the calculator.
+### 4: Façade Design Pattern – Used to hide the calculator’s calculation modification functions to create a more simplified interface for these functions of the calculator.
 **Code Example: (See Facade Folder For More)**
 namespace CalculatorProject.Facade
 {
@@ -106,7 +106,7 @@ namespace CalculatorProject.Facade
         {
             _remove.Execute(calculator, index);
         }…
-# 5: State Design Pattern – Used to track the state of a calculation in order to see if it is “Unmodified” or “Modified”.
+### 5: State Design Pattern – Used to track the state of a calculation in order to see if it is “Unmodified” or “Modified”.
 **Code Example: (See State Folder For More)**
 namespace CalculatorProject.State
 {
@@ -136,7 +136,7 @@ namespace CalculatorProject.State
     }
 }
  
-# How SOLID Was Applied
+## How SOLID Was Applied
 1.	Single Responsibility Principle (SRP)
   a.	This principal was applied to each file when working with that file’s class. Each class has one responsibility to deal with and is not overloaded with multiple functions that may have otherwise made this calculator more confusing to work with.
 2.	Open Closed Principle (OCP)
@@ -148,16 +148,16 @@ namespace CalculatorProject.State
 5.	Dependency Inversion Principle (DIP)
   a.	This principal was applied throughout the calculator program through interfaces and the abstraction of classes. For example, abstract classes were made for both the command design pattern and the state design pattern. This allowed me to get as detailed as I wanted with the classes, before further, more specific, implementations. Interfaces were used in the same way within the calculator in multiple cases.
 
-# How Dependency Injection Was Used
+## How Dependency Injection Was Used
 Dependency Injection was used when setting up the functionality for the calculator to handle the “DivideByZeroException”. A log entry is made when the exception is encountered and the calculation record that is associated with it will be skipped.
 
-# Program Walkthrough
+## Program Walkthrough
 	When the calculator is first activated, the user will need to interact with the console in order to use it. The first thing the user is asked to do is add operation functionality to the calculator. The user can choose to add addition, subtraction, multiplication, division, square root, or square functionalities. These are entered one at a time and the user is asked to type “DONE” when they are done adding calculations. Then, the user is asked to choose the operation they would like to calculate from a list of functionalities that they just added. When the user chooses an operation, they will be asked to input numbers and will be given the answer to their calculation. If a user chooses division and divides a number by zero, a “DivideByZeroException” will be handled, and the calculation will not be stored. At this point, the user can do more calculations by entering “YES” when they are asked. If a user enters “NO”, they will be shown several options that hold most of the calculator’s interesting features. The first option the user can choose is to view the entire calculation history. The second option the user can choose is to view/modify the calculation history one by one. This option includes the “NEXT”, “PREVIOUS”, “FIRST”, “LAST”,  “CHANGE”, and “REMOVE” features. The third option the user can choose is to go back to creating new calculations. The fourth option the user can choose is to display what the calculator is capable of doing in its current state. The fifth option the user can choose is to check the state of all the calculations. The sixth option the user can choose is to exit the calculator when they are done. When the user decides to exit the program, a “Goodbye!” message will appear.
 
-# Screenshot of Tests Passing
+## Screenshot of Tests Passing
 ![Tests Passing](/Tests-Passing.png "Screenshot of Tests Passing")
  
-# Articles Referenced
+## Articles Referenced
 https://www.dotnettricks.com/learn/designpatterns/solid-design-principles-explained-using-csharp
 https://refactoring.guru/design-patterns/decorator
 https://www.dofactory.com/net/decorator-design-pattern
