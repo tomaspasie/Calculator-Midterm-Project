@@ -52,8 +52,8 @@ namespace CalculatorProject.Commands
         public abstract bool UserChoiceCheck(Invoker command);
         public abstract void Execute(Invoker command, ICalculatorComponent calculator);
         public abstract void ExecuteConsole(Invoker command, ICalculatorComponent calculator, ILogger<CalculatorManager> logger);
-    }
-}
+    }...
+	
 ### 3: Iterator Design Pattern – Used for traversing and displaying the calculation history as well as to retrieve specific indexes throughout the calculator.
 **Code Example: (See Iterator Folder For More)**
 // Concrete Iterator Class (Iterator Design Pattern)
