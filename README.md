@@ -1,10 +1,10 @@
 # Calculator-Midterm-Project
-**Tomas Pasiecznik**
-**Professor Williams**
-**IS 421-002**
-**23 March 2020**
+######Tomas Pasiecznik
+######Professor Williams
+######IS 421-002
+######23 March 2020
 
-**Calculator Midterm Project Tutorial Article**
+# Calculator Tutorial Article (Midterm Project)
 
 # Introduction
 
@@ -154,8 +154,8 @@ Dependency Injection was used when setting up the functionality for the calculat
 # Program Walkthrough
 	When the calculator is first activated, the user will need to interact with the console in order to use it. The first thing the user is asked to do is add operation functionality to the calculator. The user can choose to add addition, subtraction, multiplication, division, square root, or square functionalities. These are entered one at a time and the user is asked to type “DONE” when they are done adding calculations. Then, the user is asked to choose the operation they would like to calculate from a list of functionalities that they just added. When the user chooses an operation, they will be asked to input numbers and will be given the answer to their calculation. If a user chooses division and divides a number by zero, a “DivideByZeroException” will be handled, and the calculation will not be stored. At this point, the user can do more calculations by entering “YES” when they are asked. If a user enters “NO”, they will be shown several options that hold most of the calculator’s interesting features. The first option the user can choose is to view the entire calculation history. The second option the user can choose is to view/modify the calculation history one by one. This option includes the “NEXT”, “PREVIOUS”, “FIRST”, “LAST”,  “CHANGE”, and “REMOVE” features. The third option the user can choose is to go back to creating new calculations. The fourth option the user can choose is to display what the calculator is capable of doing in its current state. The fifth option the user can choose is to check the state of all the calculations. The sixth option the user can choose is to exit the calculator when they are done. When the user decides to exit the program, a “Goodbye!” message will appear.
 
-# Screenshot of Passing Tests
-![Passing Tests](/Passing-Tests.png "Screenshot of Passing Tests")
+# Screenshot of Tests Passing
+![Tests Passing](/Tests-Passing.png "Screenshot of Tests Passing")
  
 # Articles Referenced
 https://www.dotnettricks.com/learn/designpatterns/solid-design-principles-explained-using-csharp
