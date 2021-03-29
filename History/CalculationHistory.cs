@@ -16,7 +16,7 @@ namespace CalculatorProject.History
 
             Collection collection = new Collection();
 
-            foreach (Calculation _calculation in calculator.Calculation_History)
+            foreach (Calculation _calculation in calculator.CalculationHistory)
             {
                 collection.CalculationHistory.Add(_calculation);
             }
@@ -27,13 +27,9 @@ namespace CalculatorProject.History
             // | 1 | View Calculation History (Format: Entire List)
             while (userInput.Equals("1"))
             {
-                Console.WriteLine("\n--------------------------------------");
-                Console.WriteLine("| SHOWING ENTIRE CALCULATION HISTORY |");
-                Console.WriteLine("--------------------------------------");
+                Prompts.ShowHistory();
                 iterator.ShowAll(calculator);
-                Console.WriteLine("--------------------------------------");
-                Console.WriteLine("|  Press ENTER To Return To Options  |");
-                Console.WriteLine("--------------------------------------");
+                Prompts.Back();
                 String enter = Console.ReadLine();
                 userInput = "pass";
             }
@@ -43,16 +39,12 @@ namespace CalculatorProject.History
             {
                 String enter = "";
 
-                Console.WriteLine("\n------------------------------------------------------------------------------------------------------");
-                Console.WriteLine("|                                   SHOWING CALCULATIONS ONE BY ONE                                  |");
-                Console.WriteLine("------------------------------------------------------------------------------------------------------");
+                Prompts.IteratorTitle();
                 iterator.First(calculator);
 
                 while (enter != "EXIT")
                 {
-                    Console.WriteLine("\n------------------------------------------------------------------------------------------------------");
-                    Console.WriteLine("| Choose An Option: NEXT, PREVIOUS, FIRST, LAST, CHANGE, REMOVE  | Or Type EXIT To Return To Options |");
-                    Console.WriteLine("------------------------------------------------------------------------------------------------------\n");
+                    Prompts.IteratorOptions();
                     enter = Console.ReadLine();
 
                     while (enter.Equals("NEXT"))
@@ -81,24 +73,19 @@ namespace CalculatorProject.History
 
                     while (enter.Equals("CHANGE"))
                     {
-                        Console.WriteLine("\n-------------------------------------------------------------");
-                        Console.WriteLine("|                     EDIT CALCULATION                      |");
-                        Console.WriteLine("-------------------------------------------------------------\n");
-                        Console.WriteLine("What Operation Do You Want To Change This Calculation To?");
-                        Receiver.displayOperations(calculator, "");
-                        String operation = Console.ReadLine();
+                        Prompts.ShowEdit();
+                        Receiver.DisplayOperations(calculator, "");
+                        string operation = Console.ReadLine();
 
                         CalculationManipulation manipulator = new CalculationManipulation();
                         Calculation oldCalculation = iterator.CurrentCalculation(calculator);
                         manipulator.EditCalculation(operation, oldCalculation, calculator, iterator);
 
                         iterator.Current(calculator);
-                        Console.WriteLine("");
+                        Prompts.Write("");
 
-                        Console.WriteLine("------------------------------------------------------------------------");
-                        Console.WriteLine("|  CALCULATION SUCCESSFULLY CHANGED | Press ENTER To Return To Options |");
-                        Console.WriteLine("------------------------------------------------------------------------");
-                        String temp = Console.ReadLine();
+                        Prompts.Changed();
+                        string temp = Console.ReadLine();
                         enter = "EXIT";
                     }
 
@@ -107,17 +94,15 @@ namespace CalculatorProject.History
                         CalculationManipulation manipulator = new CalculationManipulation();
                         manipulator.RemoveCalculation(calculator, iterator.GetIndex());
                         enter = "pass";
-                        Console.WriteLine("\n-----------------------------------------------------------");
-                        Console.WriteLine("|  CALCULATION REMOVED | Press ENTER To Return To Options |");
-                        Console.WriteLine("-----------------------------------------------------------");
-                        String temp = Console.ReadLine();
+                        Prompts.Removed();
+                        string temp = Console.ReadLine();
                         enter = "EXIT";
                     }
 
                     while ((!enter.Equals("NEXT")) && (!enter.Equals("PREVIOUS")) && (!enter.Equals("FIRST")) && (!enter.Equals("LAST") && (!enter.Equals("CHANGE") && (!enter.Equals("REMOVE")) && (!enter.Equals("pass")) && (!enter.Equals("EXIT")))))
                     {
-                        Console.WriteLine("\nThat is not available. Press ENTER To Return.");
-                        String temp = Console.ReadLine();
+                        Prompts.Enter();
+                        string temp = Console.ReadLine();
                         enter = "pass";
                     }
                 }
@@ -128,13 +113,9 @@ namespace CalculatorProject.History
             // | 5 | Check State Of All Calculations
             while (userInput.Equals("5"))
             {
-                Console.WriteLine("\n--------------------------------------");
-                Console.WriteLine("| CURRENT STATE OF ALL CALCULATIONS |");
-                Console.WriteLine("--------------------------------------");
+                Prompts.StateTitle();
                 iterator.ShowState(calculator);
-                Console.WriteLine("--------------------------------------");
-                Console.WriteLine("|  Press ENTER To Return To Options  |");
-                Console.WriteLine("--------------------------------------");
+                Prompts.StateOptions();
                 String enter = Console.ReadLine();
                 userInput = "pass";
             }

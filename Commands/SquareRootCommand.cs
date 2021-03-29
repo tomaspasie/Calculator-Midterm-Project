@@ -10,26 +10,30 @@ namespace CalculatorProject.Commands
     // Concrete Command Class (Command Design Pattern)
     class SquareRootCommand : Command
     {
-        string SquareRoot = "square root";
-        string choice = "square root_USER_CHOICE";
+        private const string SquareRoot = "square root";
+        private const string Choice = "square root_USER_CHOICE";
+
         public override bool UserInputCheck(Invoker command)
         {
             return command.OperationString.Equals(SquareRoot);
         }
         public override bool UserChoiceCheck(Invoker command)
         {
-            return command.OperationString.Equals(choice);
+            return command.OperationString.Equals(Choice);
         }
 
-        public override void Execute(Invoker command, ICalculatorComponent calculator)
+        public override ICalculatorComponent Execute(Invoker command, ICalculatorComponent calculator)
         {
             bool check = UserInputCheck(command);
             while (check)
             {
                 calculator.OnAdd_SquareRoot(calculator);
-                calculator.tempOperations.Add("Square Root", new SquareRootDecorator(calculator));
+                calculator.TempOperations.Add("Square Root", new SquareRootDecorator(calculator));
+                calculator = Events.SquareRoot.Handler(calculator);
                 check = false;
             }
+
+            return calculator;
         }
 
         public override void ExecuteConsole(Invoker command, ICalculatorComponent calculator, ILogger<CalculatorManager> logger)
@@ -37,22 +41,18 @@ namespace CalculatorProject.Commands
             bool check = UserChoiceCheck(command);
             while (check)
             {
-                Console.WriteLine("\n\n- - - - - - - - - - -");
-                Console.WriteLine("YOU CHOSE: Square Root");
-                Console.WriteLine("- - - - - - - - - - -\n");
+                Prompts.SquareRoot();
 
                 double a;
                 double result;
 
-                Console.WriteLine("Enter number:");
+                Prompts.Number();
                 a = Convert.ToDouble(Console.ReadLine());
 
-                calculator.operations["square root"].createCalculation(calculator, a);
-                result = calculator.operations["square root"].GetResult(calculator);
+                calculator.Operations["square root"].CreateCalculation(calculator, a);
+                result = calculator.Operations["square root"].GetResult(calculator);
 
-                Console.WriteLine("\n---------------------------------");
-                Console.WriteLine("ANSWER: " + Convert.ToString(result));
-                Console.WriteLine("---------------------------------");
+                Prompts.Result(result);
 
                 calculator.UserOperations.Add("SQUARE ROOT OF");
                 calculator.CalculatorState.Add(new Context(new Unmodified()));

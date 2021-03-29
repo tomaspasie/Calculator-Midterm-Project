@@ -13,44 +13,7 @@ namespace CalculatorProject
 
     class Calculator : ICalculatorComponent
     {
-        // Calculation Creators
-        public Calculation createCalculation(ICalculatorComponent calculator, double a, double b)
-        {
-            return new Calculation();
-        }
-
-        public Calculation createCalculation(ICalculatorComponent calculator, double a)
-        {
-            return new Calculation();
-        }
-
-        // Calculation History
-        public List<Calculation> results = new List<Calculation>();
-        List<Calculation> ICalculatorComponent.Calculation_History { get => results; set => results = new List<Calculation>(); }
-
-        // Command List
-        public List<Invoker> commands = new List<Invoker>();
-        List<Invoker> ICalculatorComponent.Commands { get => commands; set => commands = new List<Invoker>(); }
-
-        // Command List 2
-        public List<Invoker> commands2 = new List<Invoker>();
-        List<Invoker> ICalculatorComponent.Commands2 { get => commands2; set => commands2 = new List<Invoker>(); }
-
-        // Command List 2
-        public List<String> userOp = new List<String>();
-        List<String> ICalculatorComponent.UserOperations { get => userOp; set => userOp = new List<String>(); }
-
-        // Calculator State
-        public List<Context> _CalculatorState = new List<Context>();
-        List<Context> ICalculatorComponent.CalculatorState { get => _CalculatorState; set => _CalculatorState = new List<Context>(); }
-
-        // Calculation Results [See Decorators]
-        public double GetResult(ICalculatorComponent calculator)
-        {
-            return 0;
-        }
-
-        // Event Declarataion
+        // Event Declaration
         public event OperationDelegate AddAddition;
         public event OperationDelegate AddSubtraction;
         public event OperationDelegate AddMultiplication;
@@ -88,6 +51,42 @@ namespace CalculatorProject
             AddSquare?.Invoke(calculator);
         }
 
+        // Calculation Creators
+        public Calculation CreateCalculation(ICalculatorComponent calculator, double a, double b)
+        {
+            return new Calculation();
+        }
+
+        public Calculation CreateCalculation(ICalculatorComponent calculator, double a)
+        {
+            return new Calculation();
+        }
+
+        // Calculation History
+        public List<Calculation> results = new List<Calculation>();
+        List<Calculation> ICalculatorComponent.CalculationHistory { get => results; set => results = new List<Calculation>(); }
+
+        // Command List
+        public List<Invoker> commands = new List<Invoker>();
+        List<Invoker> ICalculatorComponent.Commands { get => commands; set => commands = new List<Invoker>(); }
+
+        // Command List 2
+        public List<Invoker> commands2 = new List<Invoker>();
+        List<Invoker> ICalculatorComponent.Commands2 { get => commands2; set => commands2 = new List<Invoker>(); }
+
+        // User Operations List
+        public List<String> userOp = new List<String>();
+        List<String> ICalculatorComponent.UserOperations { get => userOp; set => userOp = new List<String>(); }
+
+        // Calculator State
+        public List<Context> _CalculatorState = new List<Context>();
+        List<Context> ICalculatorComponent.CalculatorState { get => _CalculatorState; set => _CalculatorState = new List<Context>(); }
+
+        // Calculation Results [See Decorators]
+        public double GetResult(ICalculatorComponent calculator)
+        {
+            return 0;
+        }
 
         public Dictionary<string, ICalculatorComponent> _operations = new Dictionary<string, ICalculatorComponent> {
             {"addition", null},
@@ -98,7 +97,7 @@ namespace CalculatorProject
             {"square", null}
         };
 
-        Dictionary<string, ICalculatorComponent> ICalculatorComponent.operations
+        Dictionary<string, ICalculatorComponent> ICalculatorComponent.Operations
         {
             get => _operations;
             set => _operations = new Dictionary<string, ICalculatorComponent> { };
@@ -113,7 +112,7 @@ namespace CalculatorProject
             {"square", null}
         };
 
-        Dictionary<string, ICalculatorComponent> ICalculatorComponent.tempOperations
+        Dictionary<string, ICalculatorComponent> ICalculatorComponent.TempOperations
         {
             get => _tempOperations;
             set => _tempOperations = new Dictionary<string, ICalculatorComponent> { };

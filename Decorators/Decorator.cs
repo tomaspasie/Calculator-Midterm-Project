@@ -1,27 +1,26 @@
 ﻿using System;
 using CalculatorProject.Commands;
+using CalculatorProject.Events;
 
 namespace CalculatorProject.Decorators
 {
     class Decorator
     {
-        public static void Activate(ICalculatorComponent calculator)
+        public static void Activate(ICalculatorComponent calculator, Publisher publisher)
         {
             bool repeat = true;
 
             while (repeat)
             {
 
-                Console.WriteLine(
-                    "What operation functionality would you like to give the calculator? (Enter one at a time.)");
-                Console.WriteLine("Options: addition, subtraction, multiplication, division, square root, square\n");
+                Prompts.Functionality();
 
                 String Done = "";
                 string operationInput = Console.ReadLine();
 
                 while ((!operationInput.Equals("addition")) && (!operationInput.Equals("subtraction")) && (!operationInput.Equals("multiplication")) && (!operationInput.Equals("division") && (!operationInput.Equals("square root") && (!operationInput.Equals("square")) && (!operationInput.Equals("DONE")))))
                 {
-                    Console.WriteLine("\nThat is not available. Please choose another.\n");
+                    Prompts.NotAvailable();
                     operationInput = Console.ReadLine();
                 }
 
@@ -29,16 +28,18 @@ namespace CalculatorProject.Decorators
                 {
                     Invoker command1 = new Invoker(operationInput);
                     calculator.Commands.Add(command1);
-                    Console.WriteLine("\nEnter another operation functionality or type 'DONE' to continue.\n");
+                    Prompts._Functionality();
                     operationInput = Console.ReadLine();
                     while ((!operationInput.Equals("addition")) && (!operationInput.Equals("subtraction")) && (!operationInput.Equals("multiplication")) && (!operationInput.Equals("division") && (!operationInput.Equals("square root") && (!operationInput.Equals("square")) && (!operationInput.Equals("DONE")))))
                     {
-                        Console.WriteLine("\nThat is not available. Please choose another.\n");
+                        Prompts.NotAvailable();
                         operationInput = Console.ReadLine();
                     }
                     Done = operationInput;
                     repeat = false;
                 }
+
+                Prompts.Divider();
             }
 
             Invoker finalCommand = new Invoker("Final Command");
@@ -51,12 +52,8 @@ namespace CalculatorProject.Decorators
 
                 while (op != "Final Command")
                 {
-                    command.Addition.Execute(command, calculator);
-                    command.Subtraction.Execute(command, calculator);
-                    command.Multiplication.Execute(command, calculator);
-                    command.Division.Execute(command, calculator);
-                    command.SquareRoot.Execute(command, calculator);
-                    command.Square.Execute(command, calculator);
+                    // Event
+                    calculator = publisher.AddFunctionality(command, calculator);
                     op = "Final Command";
                 }
             }

@@ -10,26 +10,30 @@ namespace CalculatorProject.Commands
     // Concrete Command Class (Command Design Pattern)
     class SquareCommand : Command
     {
-        string Square = "square";
-        string choice = "square_USER_CHOICE";
+        private const string Square = "square";
+        private const string Choice = "square_USER_CHOICE";
+
         public override bool UserInputCheck(Invoker command)
         {
             return command.OperationString.Equals(Square);
         }
         public override bool UserChoiceCheck(Invoker command)
         {
-            return command.OperationString.Equals(choice);
+            return command.OperationString.Equals(Choice);
         }
 
-        public override void Execute(Invoker command, ICalculatorComponent calculator)
+        public override ICalculatorComponent Execute(Invoker command, ICalculatorComponent calculator)
         {
             bool check = UserInputCheck(command);
             while (check)
             {
                 calculator.OnAdd_Square(calculator);
-                calculator.tempOperations.Add("Square", new SquareDecorator(calculator));
+                calculator.TempOperations.Add("Square", new SquareDecorator(calculator));
+                calculator = Events.Square.Handler(calculator);
                 check = false;
             }
+
+            return calculator;
         }
 
         public override void ExecuteConsole(Invoker command, ICalculatorComponent calculator, ILogger<CalculatorManager> logger)
@@ -37,22 +41,18 @@ namespace CalculatorProject.Commands
             bool check = UserChoiceCheck(command);
             while (check)
             {
-                Console.WriteLine("\n\n- - - - - - - - - - -");
-                Console.WriteLine("YOU CHOSE: Square");
-                Console.WriteLine("- - - - - - - - - - -\n");
+                Prompts.Square();
 
                 double a;
                 double result;
 
-                Console.WriteLine("Enter number:");
+                Prompts.Number();
                 a = Convert.ToDouble(Console.ReadLine());
 
-                calculator.operations["square"].createCalculation(calculator, a);
-                result = calculator.operations["square"].GetResult(calculator);
+                calculator.Operations["square"].CreateCalculation(calculator, a);
+                result = calculator.Operations["square"].GetResult(calculator);
 
-                Console.WriteLine("\n---------------------------------");
-                Console.WriteLine("ANSWER: " + Convert.ToString(result));
-                Console.WriteLine("---------------------------------");
+                Prompts.Result(result);
 
                 calculator.UserOperations.Add("SQUARE OF");
                 calculator.CalculatorState.Add(new Context(new Unmodified()));

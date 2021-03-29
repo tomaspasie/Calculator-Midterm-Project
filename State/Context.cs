@@ -7,25 +7,16 @@ namespace CalculatorProject.State
     // Context Class (State Design Pattern)
     class Context
     {
-        private State _state;
+        public State State { get; set; }
 
         public Context(State state)
         {
             this.State = state;
         }
 
-        public State State
-        {
-            get { return _state; }
-            set
-            {
-                _state = value;
-            }
-        }
-
         public void Request()
         {
-            _state.Handle(this);
+            State.Handle(this);
         }
     }
 }

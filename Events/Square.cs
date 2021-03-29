@@ -8,10 +8,12 @@ namespace CalculatorProject.Events
     class Square : Event
     {
         // Event Handler
-        public static void Handler(ICalculatorComponent calculator)
+        public static ICalculatorComponent Handler(ICalculatorComponent calculator)
         {
             ICalculatorComponent square = new SquareDecorator(calculator);
-            calculator.operations["square"] = square;
+            calculator.Operations["square"] = square;
+            
+            return calculator;
         }
 
     }

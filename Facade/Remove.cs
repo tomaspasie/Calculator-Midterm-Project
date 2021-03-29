@@ -9,7 +9,7 @@ namespace CalculatorProject.Facade
     {
         public void Execute(ICalculatorComponent calculator, int index)
         {
-            calculator.Calculation_History.RemoveAt(index);
+            calculator.CalculationHistory.RemoveAt(index);
         }
     }
 }

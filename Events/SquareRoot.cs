@@ -8,10 +8,12 @@ namespace CalculatorProject.Events
     class SquareRoot : Event
     {
         // Event Handler
-        public static void Handler(ICalculatorComponent calculator)
+        public static ICalculatorComponent Handler(ICalculatorComponent calculator)
         {
             ICalculatorComponent squareroot = new SquareRootDecorator(calculator);
-            calculator.operations["square root"] = squareroot;
+            calculator.Operations["square root"] = squareroot;
+
+            return calculator;
         }
     }
 }

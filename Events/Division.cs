@@ -8,10 +8,12 @@ namespace CalculatorProject.Events
     class Division : Event
     {
         // Event Handler
-        public static void Handler(ICalculatorComponent calculator)
+        public static ICalculatorComponent Handler(ICalculatorComponent calculator)
         {
             ICalculatorComponent division = new DivisionDecorator(calculator);
-            calculator.operations["division"] = division;
+            calculator.Operations["division"] = division;
+
+            return calculator;
         }
     }
 }

@@ -10,8 +10,9 @@ namespace CalculatorProject.Commands
     // Concrete Command Class (Command Design Pattern)
     class SubtractionCommand : Command
     {
-        string Subtraction = "subtraction";
-        string choice = "subtraction_USER_CHOICE";
+        private const string Subtraction = "subtraction";
+        private const string Choice = "subtraction_USER_CHOICE";
+
         public override bool UserInputCheck(Invoker command)
         {
             return command.OperationString.Equals(Subtraction);
@@ -19,18 +20,21 @@ namespace CalculatorProject.Commands
 
         public override bool UserChoiceCheck(Invoker command)
         {
-            return command.OperationString.Equals(choice);
+            return command.OperationString.Equals(Choice);
         }
 
-        public override void Execute(Invoker command, ICalculatorComponent calculator)
+        public override ICalculatorComponent Execute(Invoker command, ICalculatorComponent calculator)
         {
             bool check = UserInputCheck(command);
             while (check)
             {
                 calculator.OnAdd_Subtraction(calculator);
-                calculator.tempOperations.Add("Subtraction", new SubtractionDecorator(calculator));
+                calculator.TempOperations.Add("Subtraction", new SubtractionDecorator(calculator));
+                calculator = Events.Subtraction.Handler(calculator);
                 check = false;
             }
+
+            return calculator;
         }
 
         public override void ExecuteConsole(Invoker command, ICalculatorComponent calculator, ILogger<CalculatorManager> logger)
@@ -38,24 +42,20 @@ namespace CalculatorProject.Commands
             bool check = UserChoiceCheck(command);
             while (check)
             {
-                Console.WriteLine("\n\n- - - - - - - - - - -");
-                Console.WriteLine("YOU CHOSE: Subtraction");
-                Console.WriteLine("- - - - - - - - - - -\n");
+                Prompts.Subtraction();
 
                 double a, b;
                 double result;
 
-                Console.WriteLine("Enter first number:");
+                Prompts.FirstNumber();
                 a = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("\nEnter second number:");
+                Prompts.SecondNumber();
                 b = Convert.ToDouble(Console.ReadLine());
 
-                calculator.operations["subtraction"].createCalculation(calculator, a, b);
-                result = calculator.operations["subtraction"].GetResult(calculator);
+                calculator.Operations["subtraction"].CreateCalculation(calculator, a, b);
+                result = calculator.Operations["subtraction"].GetResult(calculator);
 
-                Console.WriteLine("\n---------------------------------");
-                Console.WriteLine("ANSWER: " + Convert.ToString(result));
-                Console.WriteLine("---------------------------------");
+                Prompts.Result(result);
 
                 calculator.UserOperations.Add("-");
                 calculator.CalculatorState.Add(new Context(new Unmodified()));

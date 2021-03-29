@@ -18,14 +18,14 @@ namespace CalculatorProject.Decorators
             source = calculator;
         }
 
-        public virtual Calculation createCalculation(ICalculatorComponent calculator, double a, double b)
+        public virtual Calculation CreateCalculation(ICalculatorComponent calculator, double a, double b)
         {
-            return source.createCalculation(calculator, a, b);
+            return source.CreateCalculation(calculator, a, b);
         }
 
-        public virtual Calculation createCalculation(ICalculatorComponent calculator, double a)
+        public virtual Calculation CreateCalculation(ICalculatorComponent calculator, double a)
         {
-            return source.createCalculation(calculator, a);
+            return source.CreateCalculation(calculator, a);
         }
 
         public virtual double GetResult(ICalculatorComponent calculator)
@@ -33,18 +33,18 @@ namespace CalculatorProject.Decorators
             return source.GetResult(calculator);
         }
 
-        List<Calculation> ICalculatorComponent.Calculation_History { get => new List<Calculation>(); set => new List<Calculation>(); }
+        List<Calculation> ICalculatorComponent.CalculationHistory { get => new List<Calculation>(); set => new List<Calculation>(); }
         List<Invoker> ICalculatorComponent.Commands { get => new List<Invoker>(); set => new List<Invoker>(); }
         List<Invoker> ICalculatorComponent.Commands2 { get => new List<Invoker>(); set => new List<Invoker>(); }
         List<String> ICalculatorComponent.UserOperations { get => new List<String>(); set => new List<String>(); }
         List<Context> ICalculatorComponent.CalculatorState { get => new List<Context>(); set => new List<Context>(); }
 
-        Dictionary<string, ICalculatorComponent> ICalculatorComponent.operations
+        Dictionary<string, ICalculatorComponent> ICalculatorComponent.Operations
         {
             get => new Dictionary<string, ICalculatorComponent> { }; set => new Dictionary<string, ICalculatorComponent> { };
         }
 
-        Dictionary<string, ICalculatorComponent> ICalculatorComponent.tempOperations
+        Dictionary<string, ICalculatorComponent> ICalculatorComponent.TempOperations
         {
             get => new Dictionary<string, ICalculatorComponent> { }; set => new Dictionary<string, ICalculatorComponent> { };
         }

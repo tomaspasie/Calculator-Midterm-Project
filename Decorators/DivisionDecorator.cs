@@ -7,7 +7,7 @@ namespace CalculatorProject.Decorators
         // Concrete Division Decorator (Decorator Design Pattern)
         public DivisionDecorator(ICalculatorComponent calculator) : base(calculator) { }
 
-        public override Calculation createCalculation(ICalculatorComponent calculator, double a, double b)
+        public override Calculation CreateCalculation(ICalculatorComponent calculator, double a, double b)
         {
             var quotient = Calculation.Create(a, b, Operations.Division, calculator);
 
@@ -16,7 +16,7 @@ namespace CalculatorProject.Decorators
 
         public override double GetResult(ICalculatorComponent calculator)
         {
-            return calculator.Calculation_History[^1].Operation(calculator.Calculation_History[^1].A, calculator.Calculation_History[^1].B);
+            return calculator.CalculationHistory[^1].Operation(calculator.CalculationHistory[^1].A, calculator.CalculationHistory[^1].B);
         }
     }
 }

@@ -13,12 +13,10 @@ namespace CalculatorProject.Commands
             string another = "YES";
             while (!another.Equals("NO"))
             {
-                Console.WriteLine("\n--------------------------------------------------");
-                Console.WriteLine("Choose the operation you would like to calculate.");
-                Console.WriteLine("--------------------------------------------------");
+                Prompts.ChooseOperation();
 
                 string options = "";
-                displayOperations(calculator, options);
+                DisplayOperations(calculator, options);
 
                 string choice = Console.ReadLine();
                 Invoker command2 = new Invoker(choice + "_USER_CHOICE");
@@ -42,16 +40,14 @@ namespace CalculatorProject.Commands
                     }
                 }
 
-                Console.WriteLine("\n---------------------------------");
-                Console.WriteLine("Do another calculation? (YES/NO)");
-                Console.WriteLine("---------------------------------");
+                Prompts.Another();
                 another = Console.ReadLine();
                 calculator.Commands2.Clear();
                 options = "";
             }
         }
 
-        public static void displayOperations(ICalculatorComponent calculator, String options)
+        public static void DisplayOperations(ICalculatorComponent calculator, String options)
         {
             foreach (Invoker command in calculator.Commands)
             {
@@ -66,7 +62,7 @@ namespace CalculatorProject.Commands
             }
 
             options = options.Replace(",", " | ");
-            Console.WriteLine($"| {options}\n");
+            Prompts.Write($"| {options}\n");
         }
     }
 }

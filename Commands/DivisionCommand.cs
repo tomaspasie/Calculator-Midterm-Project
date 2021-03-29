@@ -10,26 +10,30 @@ namespace CalculatorProject.Commands
     // Concrete Command Class (Command Design Pattern)
     class DivisionCommand : Command
     {
-        string Division = "division";
-        string choice = "division_USER_CHOICE";
+        private const string Division = "division";
+        private const string Choice = "division_USER_CHOICE";
+
         public override bool UserInputCheck(Invoker command)
         {
             return command.OperationString.Equals(Division);
         }
         public override bool UserChoiceCheck(Invoker command)
         {
-            return command.OperationString.Equals(choice);
+            return command.OperationString.Equals(Choice);
         }
 
-        public override void Execute(Invoker command, ICalculatorComponent calculator)
+        public override ICalculatorComponent Execute(Invoker command, ICalculatorComponent calculator)
         {
             bool check = UserInputCheck(command);
             while (check)
             {
                 calculator.OnAdd_Division(calculator);
-                calculator.tempOperations.Add("Division", new DivisionDecorator(calculator));
+                calculator.TempOperations.Add("Division", new DivisionDecorator(calculator));
+                calculator = Events.Division.Handler(calculator);
                 check = false;
             }
+
+            return calculator;
         }
 
         public override void ExecuteConsole(Invoker command, ICalculatorComponent calculator, ILogger<CalculatorManager> logger)
@@ -37,20 +41,18 @@ namespace CalculatorProject.Commands
             bool check = UserChoiceCheck(command);
             while (check)
             {
-                Console.WriteLine("\n\n- - - - - - - - - - -");
-                Console.WriteLine("YOU CHOSE: Division");
-                Console.WriteLine("- - - - - - - - - - -\n");
+                Prompts.Division();
 
                 double a, b;
                 int c, d;
                 double result, test;
                 bool skip = false;
 
-                Console.WriteLine("Enter first number:");
+                Prompts.FirstNumber();
                 a = Convert.ToDouble(Console.ReadLine());
                 c = (int)a;
 
-                Console.WriteLine("\nEnter second number:");
+                Prompts.SecondNumber();
                 b = Convert.ToDouble(Console.ReadLine());
                 d = (int)b;
 
@@ -62,20 +64,17 @@ namespace CalculatorProject.Commands
                 catch (DivideByZeroException e)
                 {
                     skip = true;
-                    Console.WriteLine("\n---------------LOGGER---------------");
+                    Prompts.Logger();
                     logger.LogInformation(e.Message);
-                    Console.WriteLine("Calculation will be skipped.");
-                    
+
                 }
 
                 while ((skip.Equals(false)) && (b != 0))
                 {
-                    calculator.operations["division"].createCalculation(calculator, a, b);
-                    result = calculator.operations["division"].GetResult(calculator);
+                    calculator.Operations["division"].CreateCalculation(calculator, a, b);
+                    result = calculator.Operations["division"].GetResult(calculator);
 
-                    Console.WriteLine("\n---------------------------------");
-                    Console.WriteLine("ANSWER: " + Convert.ToString(result));
-                    Console.WriteLine("---------------------------------");
+                    Prompts.Result(result);
 
                     calculator.UserOperations.Add("/");
                     calculator.CalculatorState.Add(new Context(new Unmodified()));

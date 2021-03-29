@@ -24,7 +24,7 @@ namespace CalculatorProject.Iterator
         public static Calculation Create(double a, double b, Func<double, double, double> operation, ICalculatorComponent calculator)
         {
             var _calculation = new Calculation(a, b, operation);
-            calculator.Calculation_History.Add(_calculation);
+            calculator.CalculationHistory.Add(_calculation);
 
             return _calculation;
         }

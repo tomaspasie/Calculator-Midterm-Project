@@ -7,7 +7,7 @@ namespace CalculatorProject.Decorators
     {
         public SquareRootDecorator(ICalculatorComponent calculator) : base(calculator) { }
 
-        public override Calculation createCalculation(ICalculatorComponent calculator, double a)
+        public override Calculation CreateCalculation(ICalculatorComponent calculator, double a)
         {
             var squareRoot = Calculation.Create(a, 0, Operations.SquareRoot, calculator);
 
@@ -16,7 +16,7 @@ namespace CalculatorProject.Decorators
 
         public override double GetResult(ICalculatorComponent calculator)
         {
-            return calculator.Calculation_History[^1].Operation(calculator.Calculation_History[^1].A,0);
+            return calculator.CalculationHistory[^1].Operation(calculator.CalculationHistory[^1].A,0);
         }
     }
 }

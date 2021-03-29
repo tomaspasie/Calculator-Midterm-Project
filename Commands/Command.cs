@@ -10,7 +10,7 @@ namespace CalculatorProject.Commands
     {
         public abstract bool UserInputCheck(Invoker command);
         public abstract bool UserChoiceCheck(Invoker command);
-        public abstract void Execute(Invoker command, ICalculatorComponent calculator);
+        public abstract ICalculatorComponent Execute(Invoker command, ICalculatorComponent calculator);
         public abstract void ExecuteConsole(Invoker command, ICalculatorComponent calculator, ILogger<CalculatorManager> logger);
     }
 }

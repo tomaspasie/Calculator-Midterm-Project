@@ -10,22 +10,16 @@ namespace CalculatorProject
 {
     class CalculatorManager
     {
-        private readonly ILogger _logger;
-
         // Calculator Manager
         public CalculatorManager(ILogger<CalculatorManager> logger)
         {
-
-            _logger = logger;
-
             Calculator calculator = new Calculator();
-            calculator.AddAddition += Addition.Handler;
-            calculator.AddSubtraction += Subtraction.Handler;
-            calculator.AddMultiplication += Multiplication.Handler;
-            calculator.AddDivision += Division.Handler;
-            calculator.AddSquareRoot += SquareRoot.Handler;
-            calculator.AddSquare += Square.Handler;
-            ConsoleManager.Activate(calculator, logger);
+            Publisher publisher = new Publisher();
+            Subscriber subscriber = new Subscriber(publisher);
+
+            ConsoleManager.Activate(calculator, publisher, logger);
+
+            subscriber.UnSubscribeEvent();
         }
 
     }

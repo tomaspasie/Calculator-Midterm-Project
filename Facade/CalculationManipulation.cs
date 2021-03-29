@@ -27,9 +27,9 @@ namespace CalculatorProject.Facade
 
             while (end1)
             {
-                Console.WriteLine("\nEnter first number:");
+                Prompts._FirstNumber();
                 double a = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("\nEnter second number:");
+                Prompts._SecondNumber();
                 double b = Convert.ToDouble(Console.ReadLine());
 
                 calculation = _edit.TwoVariables(calculation, a, b, operation);
@@ -40,9 +40,9 @@ namespace CalculatorProject.Facade
 
             while (end2)
             {
-                Console.WriteLine("\nEnter first number:");
+                Prompts._FirstNumber();
                 double a = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("\nEnter second number:");
+                Prompts._SecondNumber();
                 double b = Convert.ToDouble(Console.ReadLine());
 
                 calculation = _edit.TwoVariables(calculation, a, b, operation);
@@ -53,9 +53,9 @@ namespace CalculatorProject.Facade
 
             while (end3)
             {
-                Console.WriteLine("\nEnter first number:");
+                Prompts._FirstNumber();
                 double a = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("\nEnter second number:");
+                Prompts._SecondNumber();
                 double b = Convert.ToDouble(Console.ReadLine());
 
                 calculation = _edit.TwoVariables(calculation, a, b, operation);
@@ -66,20 +66,19 @@ namespace CalculatorProject.Facade
 
             while (end4)
             {
-                Console.WriteLine("\nEnter first number:");
+                Prompts._FirstNumber();
                 double a = Convert.ToDouble(Console.ReadLine());
                 double b = 0;
                 bool c = true;
 
                 while (c)
                 {
-                    Console.WriteLine("\nEnter second number:");
+                    Prompts._SecondNumber();
                     b = Convert.ToDouble(Console.ReadLine());
 
                     while (b == 0)
                     {
-                        Console.WriteLine("\nThis number cannot be 0.");
-                        Console.WriteLine("Please enter another number:");
+                        Prompts.Zero();
                         b = Convert.ToDouble(Console.ReadLine());
                     }
 
@@ -94,7 +93,7 @@ namespace CalculatorProject.Facade
 
             while (end5)
             {
-                Console.WriteLine("\nEnter number:");
+                Prompts._Number();
                 double a = Convert.ToDouble(Console.ReadLine());
 
                 calculation = _edit.OneVariable(calculation, a, operation);
@@ -105,7 +104,7 @@ namespace CalculatorProject.Facade
 
             while (end6)
             {
-                Console.WriteLine("\nEnter number:");
+                Prompts._Number();
                 double a = Convert.ToDouble(Console.ReadLine());
 
                 calculation = _edit.OneVariable(calculation, a, operation);

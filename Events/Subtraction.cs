@@ -8,10 +8,12 @@ namespace CalculatorProject.Events
     class Subtraction : Event
     {
         // Event Handler
-        public static void Handler(ICalculatorComponent calculator)
+        public static ICalculatorComponent Handler(ICalculatorComponent calculator)
         {
             ICalculatorComponent subtraction = new SubtractionDecorator(calculator);
-            calculator.operations["subtraction"] = subtraction;
+            calculator.Operations["subtraction"] = subtraction;
+
+            return calculator;
         }
     }
 }

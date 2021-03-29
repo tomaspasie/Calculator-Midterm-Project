@@ -10,8 +10,8 @@ namespace CalculatorProject.Commands
     // Concrete Command Class (Command Design Pattern)
     class AdditionCommand : Command
     {
-        string Addition = "addition";
-        string choice = "addition_USER_CHOICE";
+        private const string Addition = "addition";
+        private const string Choice = "addition_USER_CHOICE";
 
         public override bool UserInputCheck(Invoker command)
         {
@@ -20,19 +20,21 @@ namespace CalculatorProject.Commands
 
         public override bool UserChoiceCheck(Invoker command)
         {
-            return command.OperationString.Equals(choice);
+            return command.OperationString.Equals(Choice);
         }
 
-        public override void Execute(Invoker command, ICalculatorComponent calculator)
+        public override ICalculatorComponent Execute(Invoker command, ICalculatorComponent calculator)
         {
             bool check = UserInputCheck(command);
             while (check)
             {
                 calculator.OnAdd_Addition(calculator);
-                calculator.tempOperations.Add("Addition", new AdditionDecorator(calculator));
+                calculator.TempOperations.Add("Addition", new AdditionDecorator(calculator));
+                calculator = Events.Addition.Handler(calculator);
                 check = false;
             }
-            
+
+            return calculator;
         }
 
         public override void ExecuteConsole(Invoker command, ICalculatorComponent calculator, ILogger<CalculatorManager> logger)
@@ -40,24 +42,20 @@ namespace CalculatorProject.Commands
             bool check = UserChoiceCheck(command);
             while (check)
             {
-                Console.WriteLine("\n\n- - - - - - - - - - -");
-                Console.WriteLine("YOU CHOSE: Addition");
-                Console.WriteLine("- - - - - - - - - - -\n");
+                Prompts.Addition();
 
                 double a, b;
                 double result;
 
-                Console.WriteLine("Enter first number:");
+                Prompts.FirstNumber();
                 a = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("\nEnter second number:");
+                Prompts.SecondNumber();
                 b = Convert.ToDouble(Console.ReadLine());
 
-                calculator.operations["addition"].createCalculation(calculator, a, b);
-                result = calculator.operations["addition"].GetResult(calculator);
+                calculator.Operations["addition"].CreateCalculation(calculator, a, b);
+                result = calculator.Operations["addition"].GetResult(calculator);
 
-                Console.WriteLine("\n---------------------------------");
-                Console.WriteLine("ANSWER: " + Convert.ToString(result));
-                Console.WriteLine("---------------------------------");
+                Prompts.Result(result);
 
                 calculator.UserOperations.Add("+");
                 calculator.CalculatorState.Add(new Context(new Unmodified()));

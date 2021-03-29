@@ -31,7 +31,7 @@ namespace CalculatorProject
             ICalculatorComponent calculator = new Calculator();
             ICalculatorComponent addition = new AdditionDecorator(calculator);
 
-            addition.createCalculation(calculator, a, b);
+            addition.CreateCalculation(calculator, a, b);
             result = addition.GetResult(calculator);
 
             //Assert
@@ -50,7 +50,7 @@ namespace CalculatorProject
             ICalculatorComponent calculator = new Calculator();
             ICalculatorComponent subtraction = new SubtractionDecorator(calculator);
 
-            subtraction.createCalculation(calculator, a, b);
+            subtraction.CreateCalculation(calculator, a, b);
             result = subtraction.GetResult(calculator);
 
             //Assert
@@ -69,7 +69,7 @@ namespace CalculatorProject
             ICalculatorComponent calculator = new Calculator();
             ICalculatorComponent multiplication = new MultiplicationDecorator(calculator);
 
-            multiplication.createCalculation(calculator, a, b);
+            multiplication.CreateCalculation(calculator, a, b);
             result = multiplication.GetResult(calculator);
 
             //Assert
@@ -88,7 +88,7 @@ namespace CalculatorProject
             ICalculatorComponent calculator = new Calculator();
             ICalculatorComponent division = new DivisionDecorator(calculator);
 
-            division.createCalculation(calculator, a, b);
+            division.CreateCalculation(calculator, a, b);
             result = division.GetResult(calculator);
 
             //Assert
@@ -106,7 +106,7 @@ namespace CalculatorProject
             ICalculatorComponent calculator = new Calculator();
             ICalculatorComponent squareroot = new SquareRootDecorator(calculator);
 
-            squareroot.createCalculation(calculator, a);
+            squareroot.CreateCalculation(calculator, a);
             result = squareroot.GetResult(calculator);
 
             //Assert
@@ -124,7 +124,7 @@ namespace CalculatorProject
             ICalculatorComponent calculator = new Calculator();
             ICalculatorComponent square = new SquareDecorator(calculator);
 
-            square.createCalculation(calculator, a);
+            square.CreateCalculation(calculator, a);
             result = square.GetResult(calculator);
 
             //Assert
@@ -152,22 +152,22 @@ namespace CalculatorProject
             ICalculatorComponent squareroot = new SquareRootDecorator(calculator);
             ICalculatorComponent square = new SquareDecorator(calculator);
 
-            addition.createCalculation(calculator, a, b);
+            addition.CreateCalculation(calculator, a, b);
             result1 = addition.GetResult(calculator);
 
-            subtraction.createCalculation(calculator, a, b);
+            subtraction.CreateCalculation(calculator, a, b);
             result2 = subtraction.GetResult(calculator);
 
-            multiplication.createCalculation(calculator, a, b);
+            multiplication.CreateCalculation(calculator, a, b);
             result3 = multiplication.GetResult(calculator);
 
-            division.createCalculation(calculator, a, b);
+            division.CreateCalculation(calculator, a, b);
             result4 = division.GetResult(calculator);
 
-            squareroot.createCalculation(calculator, c);
+            squareroot.CreateCalculation(calculator, c);
             result5 = squareroot.GetResult(calculator);
 
-            square.createCalculation(calculator, d);
+            square.CreateCalculation(calculator, d);
             result6 = square.GetResult(calculator);
 
             //Assert
@@ -196,38 +196,38 @@ namespace CalculatorProject
             String userInput = "addition";
             Invoker invoker = new Invoker(userInput);
             invoker.Addition.Execute(invoker, calculator);
-            calculator.tempOperations["Addition"].createCalculation(calculator, a, b);
-            result1 = calculator.tempOperations["Addition"].GetResult(calculator);
+            calculator.TempOperations["Addition"].CreateCalculation(calculator, a, b);
+            result1 = calculator.TempOperations["Addition"].GetResult(calculator);
 
             userInput = "subtraction";
             invoker = new Invoker(userInput);
             invoker.Subtraction.Execute(invoker, calculator);
-            calculator.tempOperations["Subtraction"].createCalculation(calculator, a, b);
-            result2 = calculator.tempOperations["Subtraction"].GetResult(calculator);
+            calculator.TempOperations["Subtraction"].CreateCalculation(calculator, a, b);
+            result2 = calculator.TempOperations["Subtraction"].GetResult(calculator);
 
             userInput = "multiplication";
             invoker = new Invoker(userInput);
             invoker.Multiplication.Execute(invoker, calculator);
-            calculator.tempOperations["Multiplication"].createCalculation(calculator, a, b);
-            result3 = calculator.tempOperations["Multiplication"].GetResult(calculator);
+            calculator.TempOperations["Multiplication"].CreateCalculation(calculator, a, b);
+            result3 = calculator.TempOperations["Multiplication"].GetResult(calculator);
 
             userInput = "division";
             invoker = new Invoker(userInput);
             invoker.Division.Execute(invoker, calculator);
-            calculator.tempOperations["Division"].createCalculation(calculator, a, b);
-            result4 = calculator.tempOperations["Division"].GetResult(calculator);
+            calculator.TempOperations["Division"].CreateCalculation(calculator, a, b);
+            result4 = calculator.TempOperations["Division"].GetResult(calculator);
 
             userInput = "square root";
             invoker = new Invoker(userInput);
             invoker.SquareRoot.Execute(invoker, calculator);
-            calculator.tempOperations["Square Root"].createCalculation(calculator, c);
-            result5 = calculator.tempOperations["Square Root"].GetResult(calculator);
+            calculator.TempOperations["Square Root"].CreateCalculation(calculator, c);
+            result5 = calculator.TempOperations["Square Root"].GetResult(calculator);
 
             userInput = "square";
             invoker = new Invoker(userInput);
             invoker.Square.Execute(invoker, calculator);
-            calculator.tempOperations["Square"].createCalculation(calculator, d);
-            result6 = calculator.tempOperations["Square"].GetResult(calculator);
+            calculator.TempOperations["Square"].CreateCalculation(calculator, d);
+            result6 = calculator.TempOperations["Square"].GetResult(calculator);
 
             //Assert
             Assert.AreEqual(10, result1);
@@ -256,42 +256,42 @@ namespace CalculatorProject
             String userInput = "addition";
             Invoker invoker = new Invoker(userInput);
             invoker.Addition.Execute(invoker, calculator);
-            calculator.tempOperations["Addition"].createCalculation(calculator, a, b);
-            result1 = calculator.tempOperations["Addition"].GetResult(calculator);
+            calculator.TempOperations["Addition"].CreateCalculation(calculator, a, b);
+            result1 = calculator.TempOperations["Addition"].GetResult(calculator);
 
             userInput = "subtraction";
             invoker = new Invoker(userInput);
             invoker.Subtraction.Execute(invoker, calculator);
-            calculator.tempOperations["Subtraction"].createCalculation(calculator, a, b);
-            result2 = calculator.tempOperations["Subtraction"].GetResult(calculator);
+            calculator.TempOperations["Subtraction"].CreateCalculation(calculator, a, b);
+            result2 = calculator.TempOperations["Subtraction"].GetResult(calculator);
 
             userInput = "multiplication";
             invoker = new Invoker(userInput);
             invoker.Multiplication.Execute(invoker, calculator);
-            calculator.tempOperations["Multiplication"].createCalculation(calculator, a, b);
-            result3 = calculator.tempOperations["Multiplication"].GetResult(calculator);
+            calculator.TempOperations["Multiplication"].CreateCalculation(calculator, a, b);
+            result3 = calculator.TempOperations["Multiplication"].GetResult(calculator);
 
             userInput = "division";
             invoker = new Invoker(userInput);
             invoker.Division.Execute(invoker, calculator);
-            calculator.tempOperations["Division"].createCalculation(calculator, a, b);
-            result4 = calculator.tempOperations["Division"].GetResult(calculator);
+            calculator.TempOperations["Division"].CreateCalculation(calculator, a, b);
+            result4 = calculator.TempOperations["Division"].GetResult(calculator);
 
             userInput = "square root";
             invoker = new Invoker(userInput);
             invoker.SquareRoot.Execute(invoker, calculator);
-            calculator.tempOperations["Square Root"].createCalculation(calculator, c);
-            result5 = calculator.tempOperations["Square Root"].GetResult(calculator);
+            calculator.TempOperations["Square Root"].CreateCalculation(calculator, c);
+            result5 = calculator.TempOperations["Square Root"].GetResult(calculator);
 
             userInput = "square";
             invoker = new Invoker(userInput);
             invoker.Square.Execute(invoker, calculator);
-            calculator.tempOperations["Square"].createCalculation(calculator, d);
-            result6 = calculator.tempOperations["Square"].GetResult(calculator);
+            calculator.TempOperations["Square"].CreateCalculation(calculator, d);
+            result6 = calculator.TempOperations["Square"].GetResult(calculator);
 
             Collection collection = new Collection();
 
-            foreach (Calculation _calculation in calculator.Calculation_History)
+            foreach (Calculation _calculation in calculator.CalculationHistory)
             {
                 collection.CalculationHistory.Add(_calculation);
             }
@@ -300,27 +300,27 @@ namespace CalculatorProject
 
             iterator.First(calculator);
             i = iterator.GetIndex();
-            result1 = calculator.Calculation_History[i].Operation(calculator.Calculation_History[i].A, calculator.Calculation_History[i].B);
+            result1 = calculator.CalculationHistory[i].Operation(calculator.CalculationHistory[i].A, calculator.CalculationHistory[i].B);
 
             iterator.Next(calculator);
             i = iterator.GetIndex();
-            result2 = calculator.Calculation_History[i].Operation(calculator.Calculation_History[i].A, calculator.Calculation_History[i].B);
+            result2 = calculator.CalculationHistory[i].Operation(calculator.CalculationHistory[i].A, calculator.CalculationHistory[i].B);
 
             iterator.Next(calculator);
             i = iterator.GetIndex();
-            result3 = calculator.Calculation_History[i].Operation(calculator.Calculation_History[i].A, calculator.Calculation_History[i].B);
+            result3 = calculator.CalculationHistory[i].Operation(calculator.CalculationHistory[i].A, calculator.CalculationHistory[i].B);
 
             iterator.Next(calculator);
             i = iterator.GetIndex();
-            result4 = calculator.Calculation_History[i].Operation(calculator.Calculation_History[i].A, calculator.Calculation_History[i].B);
+            result4 = calculator.CalculationHistory[i].Operation(calculator.CalculationHistory[i].A, calculator.CalculationHistory[i].B);
 
             iterator.Next(calculator);
             i = iterator.GetIndex();
-            result5 = calculator.Calculation_History[i].Operation(calculator.Calculation_History[i].A, calculator.Calculation_History[i].B);
+            result5 = calculator.CalculationHistory[i].Operation(calculator.CalculationHistory[i].A, calculator.CalculationHistory[i].B);
 
             iterator.Last(calculator);
             i = iterator.GetIndex();
-            result6 = calculator.Calculation_History[i].Operation(calculator.Calculation_History[i].A, calculator.Calculation_History[i].B);
+            result6 = calculator.CalculationHistory[i].Operation(calculator.CalculationHistory[i].A, calculator.CalculationHistory[i].B);
 
             //Assert
             Assert.AreEqual(10, result1);
@@ -348,54 +348,54 @@ namespace CalculatorProject
             String userInput = "addition";
             Invoker invoker = new Invoker(userInput);
             invoker.Addition.Execute(invoker, calculator);
-            calculator.tempOperations["Addition"].createCalculation(calculator, a, b);
+            calculator.TempOperations["Addition"].CreateCalculation(calculator, a, b);
             calculator.UserOperations.Add("+");
             calculator.CalculatorState.Add(new Context(new Unmodified()));
-            result1 = calculator.tempOperations["Addition"].GetResult(calculator);
+            result1 = calculator.TempOperations["Addition"].GetResult(calculator);
 
             userInput = "subtraction";
             invoker = new Invoker(userInput);
             invoker.Subtraction.Execute(invoker, calculator);
-            calculator.tempOperations["Subtraction"].createCalculation(calculator, a, b);
+            calculator.TempOperations["Subtraction"].CreateCalculation(calculator, a, b);
             calculator.UserOperations.Add("-");
             calculator.CalculatorState.Add(new Context(new Unmodified()));
-            result2 = calculator.tempOperations["Subtraction"].GetResult(calculator);
+            result2 = calculator.TempOperations["Subtraction"].GetResult(calculator);
 
             userInput = "multiplication";
             invoker = new Invoker(userInput);
             invoker.Multiplication.Execute(invoker, calculator);
-            calculator.tempOperations["Multiplication"].createCalculation(calculator, a, b);
+            calculator.TempOperations["Multiplication"].CreateCalculation(calculator, a, b);
             calculator.UserOperations.Add("*");
             calculator.CalculatorState.Add(new Context(new Unmodified()));
-            result3 = calculator.tempOperations["Multiplication"].GetResult(calculator);
+            result3 = calculator.TempOperations["Multiplication"].GetResult(calculator);
 
             userInput = "division";
             invoker = new Invoker(userInput);
             invoker.Division.Execute(invoker, calculator);
-            calculator.tempOperations["Division"].createCalculation(calculator, a, b);
+            calculator.TempOperations["Division"].CreateCalculation(calculator, a, b);
             calculator.UserOperations.Add("/");
             calculator.CalculatorState.Add(new Context(new Unmodified()));
-            result4 = calculator.tempOperations["Division"].GetResult(calculator);
+            result4 = calculator.TempOperations["Division"].GetResult(calculator);
 
             userInput = "square root";
             invoker = new Invoker(userInput);
             invoker.SquareRoot.Execute(invoker, calculator);
-            calculator.tempOperations["Square Root"].createCalculation(calculator, c);
+            calculator.TempOperations["Square Root"].CreateCalculation(calculator, c);
             calculator.UserOperations.Add("SQUARE ROOT OF");
             calculator.CalculatorState.Add(new Context(new Unmodified()));
-            result5 = calculator.tempOperations["Square Root"].GetResult(calculator);
+            result5 = calculator.TempOperations["Square Root"].GetResult(calculator);
 
             userInput = "square";
             invoker = new Invoker(userInput);
             invoker.Square.Execute(invoker, calculator);
-            calculator.tempOperations["Square"].createCalculation(calculator, d);
+            calculator.TempOperations["Square"].CreateCalculation(calculator, d);
             calculator.UserOperations.Add("SQUARE OF");
             calculator.CalculatorState.Add(new Context(new Unmodified()));
-            result6 = calculator.tempOperations["Square"].GetResult(calculator);
+            result6 = calculator.TempOperations["Square"].GetResult(calculator);
 
             Collection collection = new Collection();
 
-            foreach (Calculation _calculation in calculator.Calculation_History)
+            foreach (Calculation _calculation in calculator.CalculationHistory)
             {
                 collection.CalculationHistory.Add(_calculation);
             }
@@ -416,7 +416,7 @@ namespace CalculatorProject
             iterator.Next(calculator);
             manipulator.RemoveCalculation(calculator, iterator.GetIndex());
 
-            test2 = calculator.Calculation_History.Count();
+            test2 = calculator.CalculationHistory.Count();
 
 
             //Assert
@@ -442,54 +442,54 @@ namespace CalculatorProject
             String userInput = "addition";
             Invoker invoker = new Invoker(userInput);
             invoker.Addition.Execute(invoker, calculator);
-            calculator.tempOperations["Addition"].createCalculation(calculator, a, b);
+            calculator.TempOperations["Addition"].CreateCalculation(calculator, a, b);
             calculator.UserOperations.Add("+");
             calculator.CalculatorState.Add(new Context(new Unmodified()));
-            result1 = calculator.tempOperations["Addition"].GetResult(calculator);
+            result1 = calculator.TempOperations["Addition"].GetResult(calculator);
 
             userInput = "subtraction";
             invoker = new Invoker(userInput);
             invoker.Subtraction.Execute(invoker, calculator);
-            calculator.tempOperations["Subtraction"].createCalculation(calculator, a, b);
+            calculator.TempOperations["Subtraction"].CreateCalculation(calculator, a, b);
             calculator.UserOperations.Add("-");
             calculator.CalculatorState.Add(new Context(new Unmodified()));
-            result2 = calculator.tempOperations["Subtraction"].GetResult(calculator);
+            result2 = calculator.TempOperations["Subtraction"].GetResult(calculator);
 
             userInput = "multiplication";
             invoker = new Invoker(userInput);
             invoker.Multiplication.Execute(invoker, calculator);
-            calculator.tempOperations["Multiplication"].createCalculation(calculator, a, b);
+            calculator.TempOperations["Multiplication"].CreateCalculation(calculator, a, b);
             calculator.UserOperations.Add("*");
             calculator.CalculatorState.Add(new Context(new Unmodified()));
-            result3 = calculator.tempOperations["Multiplication"].GetResult(calculator);
+            result3 = calculator.TempOperations["Multiplication"].GetResult(calculator);
 
             userInput = "division";
             invoker = new Invoker(userInput);
             invoker.Division.Execute(invoker, calculator);
-            calculator.tempOperations["Division"].createCalculation(calculator, a, b);
+            calculator.TempOperations["Division"].CreateCalculation(calculator, a, b);
             calculator.UserOperations.Add("/");
             calculator.CalculatorState.Add(new Context(new Unmodified()));
-            result4 = calculator.tempOperations["Division"].GetResult(calculator);
+            result4 = calculator.TempOperations["Division"].GetResult(calculator);
 
             userInput = "square root";
             invoker = new Invoker(userInput);
             invoker.SquareRoot.Execute(invoker, calculator);
-            calculator.tempOperations["Square Root"].createCalculation(calculator, c);
+            calculator.TempOperations["Square Root"].CreateCalculation(calculator, c);
             calculator.UserOperations.Add("SQUARE ROOT OF");
             calculator.CalculatorState.Add(new Context(new Unmodified()));
-            result5 = calculator.tempOperations["Square Root"].GetResult(calculator);
+            result5 = calculator.TempOperations["Square Root"].GetResult(calculator);
 
             userInput = "square";
             invoker = new Invoker(userInput);
             invoker.Square.Execute(invoker, calculator);
-            calculator.tempOperations["Square"].createCalculation(calculator, d);
+            calculator.TempOperations["Square"].CreateCalculation(calculator, d);
             calculator.UserOperations.Add("SQUARE OF");
             calculator.CalculatorState.Add(new Context(new Unmodified()));
-            result6 = calculator.tempOperations["Square"].GetResult(calculator);
+            result6 = calculator.TempOperations["Square"].GetResult(calculator);
 
             Collection collection = new Collection();
 
-            foreach (Calculation _calculation in calculator.Calculation_History)
+            foreach (Calculation _calculation in calculator.CalculationHistory)
             {
                 collection.CalculationHistory.Add(_calculation);
             }
