@@ -24,12 +24,12 @@ This calculator offers the following features:
 ### 1: Decorator Design Pattern – Used for the calculator’s operations. When letting the user add functionality to the calculator, decorators are tied to events which are set off by the user.  
 **Code Example: (See Decorators Folder For More)**  
 ```c#
-// Addition Decorator (Concrete)
-class AdditionDecorator : CalculatorDecorator
+// Concrete Addition Decorator (Decorator Design Pattern)
+    class AdditionDecorator : CalculatorDecorator
     {
         public AdditionDecorator(ICalculatorComponent calculator) : base(calculator) { }
 
-        public override Calculation createCalculation(ICalculatorComponent calculator, double a, double b)
+        public override Calculation CreateCalculation(ICalculatorComponent calculator, double a, double b)
         {
             var sum = Calculation.Create(a, b, Operations.Addition, calculator);
 
@@ -38,7 +38,7 @@ class AdditionDecorator : CalculatorDecorator
 
         public override double GetResult(ICalculatorComponent calculator)
         {
-            return calculator.Calculation_History[^1].Operation(calculator.Calculation_History[^1].A, calculator.Calculation_History[^1].B);
+            return calculator.CalculationHistory[^1].Operation(calculator.CalculationHistory[^1].A, calculator.CalculationHistory[^1].B);
         }
     }
 ```
@@ -65,33 +65,33 @@ namespace CalculatorProject.Commands
 // Concrete Iterator Class (Iterator Design Pattern)
     class Iterator : ICalculationIterator
     {
-        public Collection calculationHistory;
-        public int index = 0;
-        public int next = 1;
-        public int previous = -1;
+        public Collection CalculationHistory;
+        public int Index = 0;
+        public int NextI = 1;
+        public int PreviousI = -1;
 
         // Iterator Constructor (Iterator Design Pattern)
         public Iterator(Collection history)
         {
-            this.calculationHistory = history;
+            this.CalculationHistory = history;
         }
 
         public void Next(ICalculatorComponent calculator)
         {
-            index += next;
+            Index += NextI;
             bool end = EndOfCollection();
 
             while (!end)
             {
-                ShowSingle(index, calculator);
+                ShowSingle(Index, calculator);
                 end = true;
             }
 
             end = EndOfCollection();
             while (end)
             {
-                index = calculationHistory.Count - 1;
-                Console.WriteLine("\nYou are at the end of the calculation history.");
+                Index = CalculationHistory.Count - 1;
+                Prompts.Write("\nYou are at the end of the calculation history.");
                 Last(calculator);
                 end = false;
             }
@@ -123,25 +123,16 @@ namespace CalculatorProject.State
     // Context Class (State Design Pattern)
     class Context
     {
-        private State _state;
+        public State State { get; set; }
 
         public Context(State state)
         {
             this.State = state;
         }
 
-        public State State
-        {
-            get { return _state; }
-            set
-            {
-                _state = value;
-            }
-        }
-
         public void Request()
         {
-            _state.Handle(this);
+            State.Handle(this);
         }
     }
 }
@@ -163,13 +154,14 @@ namespace CalculatorProject.State
 Dependency Injection was used when setting up the functionality for the calculator to handle the “DivideByZeroException”. A log entry is made when the exception is encountered and the calculation record that is associated with it will be skipped.  
 
 ## Program Walkthrough
-When the calculator is first activated, the user will need to interact with the console in order to use it. The first thing the user is asked to do is add operation functionality to the calculator. The user can choose to add addition, subtraction, multiplication, division, square root, or square functionalities. These are entered one at a time and the user is asked to type “DONE” when they are done adding calculations. Then, the user is asked to choose the operation they would like to calculate from a list of functionalities that they just added. When the user chooses an operation, they will be asked to input numbers and will be given the answer to their calculation. If a user chooses division and divides a number by zero, a “DivideByZeroException” will be handled, and the calculation will not be stored. At this point, the user can do more calculations by entering “YES” when they are asked. If a user enters “NO”, they will be shown several options that hold most of the calculator’s interesting features. The first option the user can choose is to view the entire calculation history. The second option the user can choose is to view/modify the calculation history one by one. This option includes the “NEXT”, “PREVIOUS”, “FIRST”, “LAST”,  “CHANGE”, and “REMOVE” features. The third option the user can choose is to go back to creating new calculations. The fourth option the user can choose is to display what the calculator is capable of doing in its current state. The fifth option the user can choose is to check the state of all the calculations. The sixth option the user can choose is to exit the calculator when they are done. When the user decides to exit the program, a “Goodbye!” message will appear.  
+When the calculator is first activated, the user will need to interact with the console in order to use it. The first thing the user is asked to do is to add operation functionality to the calculator. The program uses events to listen for the user input and subsequently perform the correct actions that the user wants. The user can choose to add addition, subtraction, multiplication, division, square root, or square functionalities. These are entered one at a time and the user is asked to type “DONE” when they are done adding calculations. Then, the user is asked to choose the operation they would like to calculate from a list of functionalities that they just added. When the user chooses an operation, they will be asked to input numbers and will be given the answer to their calculation. If a user chooses division and divides a number by zero, a “DivideByZeroException” will be handled, and the calculation will not be stored. At this point, the user can do more calculations by entering “YES” when they are asked. If a user enters “NO”, they will be shown several options that hold most of the calculator’s interesting features. The first option the user can choose is to view the entire calculation history. The second option the user can choose is to view/modify the calculation history one by one. This option includes the “NEXT”, “PREVIOUS”, “FIRST”, “LAST”,  “CHANGE”, and “REMOVE” features. The third option the user can choose is to go back to creating new calculations. The fourth option the user can choose is to display what the calculator is capable of doing in its current state. The fifth option the user can choose is to check the state of all the calculations. The sixth option the user can choose is to exit the calculator when they are done. When the user decides to exit the program, a “Goodbye!” message will appear.  
 
 ## Screenshot of Tests Passing
 ![Tests Passing](/Tests-Passing.png "Screenshot of Tests Passing")
  
 ## Articles Referenced
-https://www.dotnettricks.com/learn/designpatterns/solid-design-principles-explained-using-csharp  
+https://www.dotnettricks.com/learn/designpatterns/solid-design-principles-explained-using-csharp 
+https://www.c-sharpcorner.com/UploadFile/1c8574/events-in-C-Sharp/  
 https://refactoring.guru/design-patterns/decorator  
 https://www.dofactory.com/net/decorator-design-pattern  
 https://refactoring.guru/design-patterns/facade  
