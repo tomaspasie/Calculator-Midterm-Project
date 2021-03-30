@@ -160,7 +160,7 @@ When the calculator is first activated, the user will need to interact with the 
 ![Tests Passing](/Tests-Passing.png "Screenshot of Tests Passing")
  
 ## Articles Referenced
-https://www.dotnettricks.com/learn/designpatterns/solid-design-principles-explained-using-csharp 
+https://www.dotnettricks.com/learn/designpatterns/solid-design-principles-explained-using-csharp  
 https://www.c-sharpcorner.com/UploadFile/1c8574/events-in-C-Sharp/  
 https://refactoring.guru/design-patterns/decorator  
 https://www.dofactory.com/net/decorator-design-pattern  
