@@ -109,7 +109,7 @@ namespace CalculatorProject
 
         public static void Divider()
         {
-            Write("\n-----------------------------------------------------");
+            Write("\n-----------------------------------------");
         }
 
         public static void Result(double result)
