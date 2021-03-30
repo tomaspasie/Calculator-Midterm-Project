@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CalculatorProject.Events;
 using Microsoft.Extensions.Logging;
 
 namespace CalculatorProject.Commands
@@ -62,7 +63,7 @@ namespace CalculatorProject.Commands
             }
 
             options = options.Replace(",", " | ");
-            Prompts.Write($"| {options}\n");
+            WriteToConsole.Write($"| {options}\n");
         }
     }
 }

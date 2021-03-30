@@ -13,7 +13,7 @@ namespace CalculatorProject.Events
 
         public static void Publishers_AddOperation(object sender, EventArgs e)
         {
-            Prompts.Write("\n| Event: " + sender.ToString().ToUpper() + " Operation Added.");
+            WriteToConsole.Write("\n| Event: " + sender.ToString().ToUpper() + " Operation Added.");
         }
         
         public void UnSubscribeEvent()

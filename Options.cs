@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using CalculatorProject.Commands;
+using CalculatorProject.Events;
 using CalculatorProject.History;
 using Microsoft.Extensions.Logging;
 
@@ -24,7 +25,7 @@ namespace CalculatorProject
                 // | 3 | Create New Calculations
                 while (choice.Equals("3"))
                 {
-                    Prompts.Write("\n");
+                    WriteToConsole.Write("\n");
                     Receiver.Activate(calculator, logger);
                     choice = "pass";
                 }

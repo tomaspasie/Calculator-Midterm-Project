@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using CalculatorProject.Commands;
+using CalculatorProject.Events;
 using CalculatorProject.Facade;
 using CalculatorProject.Iterator;
 
@@ -82,7 +83,7 @@ namespace CalculatorProject.History
                         manipulator.EditCalculation(operation, oldCalculation, calculator, iterator);
 
                         iterator.Current(calculator);
-                        Prompts.Write("");
+                        WriteToConsole.Write("");
 
                         Prompts.Changed();
                         string temp = Console.ReadLine();

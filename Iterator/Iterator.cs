@@ -35,7 +35,7 @@ namespace CalculatorProject.Iterator
             while (end)
             {
                 Index = CalculationHistory.Count - 1;
-                Prompts.Write("\nYou are at the end of the calculation history.");
+                WriteToConsole.Write("\nYou are at the end of the calculation history.");
                 Last(calculator);
                 end = false;
             }
@@ -63,7 +63,7 @@ namespace CalculatorProject.Iterator
             {
                 Index = 0;
                 temp = Index;
-                Prompts.Write("\nYou are at the beginning of the calculation history.");
+                WriteToConsole.Write("\nYou are at the beginning of the calculation history.");
                 First(calculator);
             }
         }
@@ -128,7 +128,7 @@ namespace CalculatorProject.Iterator
 
                     while (sign.Equals("+"))
                     {
-                        Prompts.Write("\n>>> Calculation #" + num.ToString() + " | " +
+                        WriteToConsole.Write("\n>>> Calculation #" + num.ToString() + " | " +
                                       calculator.CalculationHistory[i].A + " " + sign + " " +
                                       calculator.CalculationHistory[i].B + " = " +
                                       calculator.CalculationHistory[i].Operation(
@@ -139,7 +139,7 @@ namespace CalculatorProject.Iterator
 
                     while (sign.Equals("-"))
                     {
-                        Prompts.Write("\n>>> Calculation #" + num.ToString() + " | " +
+                        WriteToConsole.Write("\n>>> Calculation #" + num.ToString() + " | " +
                                       calculator.CalculationHistory[i].A + " " + sign + " " +
                                       calculator.CalculationHistory[i].B + " = " +
                                       calculator.CalculationHistory[i].Operation(
@@ -150,7 +150,7 @@ namespace CalculatorProject.Iterator
 
                     while (sign.Equals("*"))
                     {
-                        Prompts.Write("\n>>> Calculation #" + num.ToString() + " | " +
+                        WriteToConsole.Write("\n>>> Calculation #" + num.ToString() + " | " +
                                       calculator.CalculationHistory[i].A + " " + sign + " " +
                                       calculator.CalculationHistory[i].B + " = " +
                                       calculator.CalculationHistory[i].Operation(
@@ -161,7 +161,7 @@ namespace CalculatorProject.Iterator
 
                     while (sign.Equals("/"))
                     {
-                        Prompts.Write("\n>>>Calculation #" + num.ToString() + " | " +
+                        WriteToConsole.Write("\n>>>Calculation #" + num.ToString() + " | " +
                                       calculator.CalculationHistory[i].A + " " + sign + " " +
                                       calculator.CalculationHistory[i].B + " = " +
                                       calculator.CalculationHistory[i].Operation(
@@ -172,7 +172,7 @@ namespace CalculatorProject.Iterator
 
                     while (sign.Equals("SQUARE ROOT OF"))
                     {
-                        Prompts.Write("\n>>>Calculation #" + num.ToString() + " | " + sign + " " +
+                        WriteToConsole.Write("\n>>>Calculation #" + num.ToString() + " | " + sign + " " +
                                       calculator.CalculationHistory[i].A + " = " +
                                       calculator.CalculationHistory[i].Operation(calculator.CalculationHistory[i].A, 0));
                         sign = "";
@@ -180,7 +180,7 @@ namespace CalculatorProject.Iterator
 
                     while (sign.Equals("SQUARE OF"))
                     {
-                        Prompts.Write("\n>>>Calculation #" + num.ToString() + " | " + sign + " " +
+                        WriteToConsole.Write("\n>>>Calculation #" + num.ToString() + " | " + sign + " " +
                                       calculator.CalculationHistory[i].A + " = " +
                                       calculator.CalculationHistory[i].Operation(calculator.CalculationHistory[i].A, 0));
                         sign = "";
@@ -209,7 +209,7 @@ namespace CalculatorProject.Iterator
                     {
                         while (sign.Equals("+"))
                         {
-                            Prompts.Write("Calculation #" + num.ToString() + " | " +
+                            WriteToConsole.Write("Calculation #" + num.ToString() + " | " +
                                               calculator.CalculationHistory[i].A + " " + sign + " " +
                                               calculator.CalculationHistory[i].B + " = " + calculator
                                                   .CalculationHistory[i].Operation(
@@ -223,7 +223,7 @@ namespace CalculatorProject.Iterator
 
                         while (sign.Equals("-"))
                         {
-                            Prompts.Write("Calculation #" + num.ToString() + " | " +
+                            WriteToConsole.Write("Calculation #" + num.ToString() + " | " +
                                           calculator.CalculationHistory[i].A + " " + sign + " " +
                                           calculator.CalculationHistory[i].B + " = " + calculator
                                               .CalculationHistory[i].Operation(
@@ -237,7 +237,7 @@ namespace CalculatorProject.Iterator
 
                         while (sign.Equals("*"))
                         {
-                            Prompts.Write("Calculation #" + num.ToString() + " | " +
+                            WriteToConsole.Write("Calculation #" + num.ToString() + " | " +
                                           calculator.CalculationHistory[i].A + " " + sign + " " +
                                           calculator.CalculationHistory[i].B + " = " + calculator
                                               .CalculationHistory[i].Operation(
@@ -251,7 +251,7 @@ namespace CalculatorProject.Iterator
 
                         while (sign.Equals("/"))
                         {
-                            Prompts.Write("Calculation #" + num.ToString() + " | " +
+                            WriteToConsole.Write("Calculation #" + num.ToString() + " | " +
                                           calculator.CalculationHistory[i].A + " " + sign + " " +
                                           calculator.CalculationHistory[i].B + " = " + calculator
                                               .CalculationHistory[i].Operation(
@@ -265,7 +265,7 @@ namespace CalculatorProject.Iterator
 
                         while (sign.Equals("SQUARE ROOT OF"))
                         {
-                            Prompts.Write("Calculation #" + num.ToString() + " | " + sign + " " +
+                            WriteToConsole.Write("Calculation #" + num.ToString() + " | " + sign + " " +
                                           calculator.CalculationHistory[i].A + " = " +
                                           calculator.CalculationHistory[i]
                                               .Operation(calculator.CalculationHistory[i].A, 0));
@@ -277,7 +277,7 @@ namespace CalculatorProject.Iterator
 
                         while (sign.Equals("SQUARE OF"))
                         {
-                            Prompts.Write("Calculation #" + num.ToString() + " | " + sign + " " +
+                            WriteToConsole.Write("Calculation #" + num.ToString() + " | " + sign + " " +
                                           calculator.CalculationHistory[i].A + " = " +
                                           calculator.CalculationHistory[i]
                                               .Operation(calculator.CalculationHistory[i].A, 0));
@@ -319,7 +319,7 @@ namespace CalculatorProject.Iterator
                     {
                         while (sign.Equals("+"))
                         {
-                            Prompts.Write("Calculation #" + num.ToString() + " | " +
+                            WriteToConsole.Write("Calculation #" + num.ToString() + " | " +
                                            calculator.CalculationHistory[i].A + " " + sign + " " +
                                            calculator.CalculationHistory[i].B + " = " + calculator
                                                .CalculationHistory[i].Operation(
@@ -333,7 +333,7 @@ namespace CalculatorProject.Iterator
 
                         while (sign.Equals("-"))
                         {
-                            Prompts.Write("Calculation #" + num.ToString() + " | " +
+                            WriteToConsole.Write("Calculation #" + num.ToString() + " | " +
                                           calculator.CalculationHistory[i].A + " " + sign + " " +
                                           calculator.CalculationHistory[i].B + " = " + calculator
                                               .CalculationHistory[i].Operation(
@@ -347,7 +347,7 @@ namespace CalculatorProject.Iterator
 
                         while (sign.Equals("*"))
                         {
-                            Prompts.Write("Calculation #" + num.ToString() + " | " +
+                            WriteToConsole.Write("Calculation #" + num.ToString() + " | " +
                                           calculator.CalculationHistory[i].A + " " + sign + " " +
                                           calculator.CalculationHistory[i].B + " = " + calculator
                                               .CalculationHistory[i].Operation(
@@ -361,7 +361,7 @@ namespace CalculatorProject.Iterator
 
                         while (sign.Equals("/"))
                         {
-                            Prompts.Write("Calculation #" + num.ToString() + " | " +
+                            WriteToConsole.Write("Calculation #" + num.ToString() + " | " +
                                           calculator.CalculationHistory[i].A + " " + sign + " " +
                                           calculator.CalculationHistory[i].B + " = " + calculator
                                               .CalculationHistory[i].Operation(
@@ -375,7 +375,7 @@ namespace CalculatorProject.Iterator
 
                         while (sign.Equals("SQUARE ROOT OF"))
                         {
-                            Prompts.Write("Calculation #" + num.ToString() + " | " + sign + " " +
+                            WriteToConsole.Write("Calculation #" + num.ToString() + " | " + sign + " " +
                                           calculator.CalculationHistory[i].A + " = " +
                                           calculator.CalculationHistory[i]
                                               .Operation(calculator.CalculationHistory[i].A, 0) + "\t| State: " + calculator.CalculatorState[i].State.GetType().Name);
@@ -387,7 +387,7 @@ namespace CalculatorProject.Iterator
 
                         while (sign.Equals("SQUARE OF"))
                         {
-                            Prompts.Write("Calculation #" + num.ToString() + " | " + sign + " " +
+                            WriteToConsole.Write("Calculation #" + num.ToString() + " | " + sign + " " +
                                           calculator.CalculationHistory[i].A + " = " +
                                           calculator.CalculationHistory[i]
                                               .Operation(calculator.CalculationHistory[i].A, 0) + "\t| State: " + calculator.CalculatorState[i].State.GetType().Name);
